@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    container_name: parsing-strategy-util
+    volumes:
+      - ".:/application"
+    environment:
+      XDEBUG_CONFIG: "remote_host=host.docker.internal"
+      PHP_IDE_CONFIG: "serverName=parsing_strategy_util"
+      LOG_LEVEL: 'debug'
